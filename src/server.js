@@ -31,7 +31,7 @@ const handleGet = (request, response, parsedUrl) => {
   if (parsedUrl.pathname === '/') responseHandler.getIndex(request, response);
   else if (parsedUrl.pathname === '/style.css') responseHandler.getCSS(request, response);
   else if (parsedUrl.pathname === '/getUsers') responseHandler.getUsers(request, response);
-  else if (parsedUrl.pathname === '/notReal') responseHandler.notReal(request, response);
+  else responseHandler.notReal(request, response);
 };
 
 const handleHead = (request, response, parsedUrl) => {

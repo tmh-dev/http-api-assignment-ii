@@ -12,11 +12,13 @@ const respond = (request, response, status, type, object) => {
 
   response.writeHead(status, headers);
   response.write(object);
+  console.dir(status);
   response.end();
 };
 
 const respondMeta = (request, response, status, type) => {
   response.writeHead(status, { 'Content-Type': type });
+  response.end();
 };
 
 const getIndex = (request, response) => {
@@ -46,6 +48,7 @@ const notRealMeta = (request, response) => {
 
 const getUsers = (request, response) => {
   const responseJSON = {
+    message: 'Success',
     users,
   };
 
