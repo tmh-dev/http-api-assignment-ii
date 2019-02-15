@@ -74,7 +74,10 @@
       xhr.setRequestHeader ('Accept', 'application/json');
       
       //set our function to handle the response
-      xhr.onload = () => handleResponse(xhr);
+      if (method === 'get')
+        xhr.onload = () => handleResponse(xhr, true);
+      else 
+        xhr.onload = () => handleResponse(xhr, false);
       
       //send our request with the data
       xhr.send();
@@ -109,8 +112,7 @@
       
       //set our function to handle the response
 
-      if (xhr.status === 400) xhr.onload = () => handleResponse(xhr, true);
-      else xhr.onload = () => handleResponse(xhr, false);
+      xhr.onload = () => handleResponse(xhr);
       
       //build our x-www-form-urlencoded format. Without ajax the 
       //browser would do this automatically but it forcefully changes pages
